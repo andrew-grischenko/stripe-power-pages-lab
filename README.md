@@ -16,9 +16,16 @@ A hands on lab to explore native integration of Microsoft Power Pages and Stripe
 
 1. Navigate to https://make.powerpages.microsoft.com/ and login using the credentials you created in the start of this lab or were provided with.
 2. After login, make sure that you select the environment as you login name, e.g. **Crimson Canyon** for the user **crimson.canyon@powerlabs1.onmicrosoft.com**  
-3. Scroll the page down a bit and you will see a Power Pages site **Contoso** pre-created for you. Click **Edit** and you will land in the Power Pages Studio.
+3. Click the **Get started** button and follow the prompts to create the Power Pages site:
+* Select any option or **Skip** the first step
+* Choose a website template (for this Lab recommended to choose the *Starter layout 1*, *Starter layout 2* or *Starter layout 3*) 
+* Enter a unique name and domain for your site or leave the default values. Click **Done** to creat the site. 
 
-![Power Pages home](images/power-pages-home.png)
+![Create Power Pages site](images/create-power-pages-site.png)
+
+3. Once the creation of the site is finished, you will land in the Power Pages Studio.
+
+
 
 4. In the Power Pages Studio select **Set up** section on the left panel and then find the **External apps (preview)** section.
 5. You will see 2 integrations available - **DocuSign** and **Stripe**. We are interested in the latter today, so select **Install** in the **Stripe** row below. Click **Start installation** in the pop up dialog to confirm and wait until it completes. 
@@ -36,19 +43,16 @@ A hands on lab to explore native integration of Microsoft Power Pages and Stripe
 ![Select solution](images/select-solution.png)
 
 2. Click **+ Table** button and select **New Table** to create a new table called **My Order** (or other name of your choice). Click **Save** to create the table. 
-3. Change the type of the primary column. For this, select the **Edit column** in the **Name** column header, set the Data type to **Autonumber** and add a Prefix to be **ORD**.
 
-![Change name column](images/change-name-column.png)
-
-4. Select **New column** for the created table and add a new column with Display name **Amount** and of Data type **Currency**.
+3. Select **New column** for the created table and add a new column with Display name **Amount** and of Data type **Currency**.
 
 ![Add amount column](images/amount-column.png)
 
-5. On the **Forms** tab find the default **Information** form, and edit it. Click **Add field** and select the column **Amount** to add it to the form. Hide the **Owner** column. Click **Save and publish** to save the form and then click **Back** to edit the table Payments.
+4. On the **Forms** tab find the default **Information** form, and edit it. Click **Add field** and select the column **Amount** to add it to the form. Hide the **Owner** column. Click **Save and publish** to save the form and then click **Back** to edit the table Payments.
 
 ![Order form](images/order-form.png)
 
-6. Click **New form** and add a new form called **Payment**. Click **Add field** and select the column **Amount** to add it to the form. Hide the **Name** and **Owner** columns. Click **Save and publish** to save the form and then click **Back** to edit the table Payments.
+5. Click **New form** and add a new form called **Payment**. Click **Add field** and select the column **Amount** to add it to the form. Hide the **Name** and **Owner** columns. Click **Save and publish** to save the form and then click **Back** to edit the table Payments.
 
 ![Payment form](images/payment-form.png)
 
@@ -113,7 +117,7 @@ This is the form where Stripe control will be inserted automatically by Power Pa
 	* CVC: `123` (or any 3 digit number)
 	* Other details as required
 
- *If the page is displayed, but no Stripe form is rendered, go to **Set up** section, scroll down to **Admin actions**, select **Open admin center** link and then in the admin center on teh top select **Site Actions** and **Restart site**. Wait for a minute or two and then try again previous step to access the payments page.*  
+ *If the page is displayed, but no Stripe form is rendered, go to **Set up** section, scroll down to **Admin actions**, select **Open admin center** link and then in the admin center on the top select **Site Actions** and **Restart site**. Wait for a minute or two and then try again previous step to access the payments page.*  
 
  ![Restart site](images/restart-site.png)
 
@@ -129,5 +133,5 @@ This is the form where Stripe control will be inserted automatically by Power Pa
 
 ## Add failed payments handling (optional)
 
-Follow teh steps defined in the original article: https://cloudminded.blog/2024/01/09/how-to-improve-stripe-payments-in-power-pages/ 
+Follow the steps defined in the original article: https://cloudminded.blog/2024/01/09/how-to-improve-stripe-payments-in-power-pages/ 
 
