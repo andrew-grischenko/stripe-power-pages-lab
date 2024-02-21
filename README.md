@@ -23,36 +23,50 @@ A hands on lab to explore native integration of Microsoft Power Pages and Stripe
 
 ![Create Power Pages site](images/create-power-pages-site.png)
 
-3. Once the creation of the site is finished, you will land in the Power Pages Studio.
+4. Once the creation of the site is finished, you will land in the Power Pages Studio.
 
-
-
-4. In the Power Pages Studio select **Set up** section on the left panel and then find the **External apps (preview)** section.
-5. You will see 2 integrations available - **DocuSign** and **Stripe**. We are interested in the latter today, so select **Install** in the **Stripe** row below. Click **Start installation** in the pop up dialog to confirm and wait until it completes. 
+5. In the Power Pages Studio select **Set up** section on the left panel and then find the **External apps (preview)** section.
+6. You will see 2 integrations available - **DocuSign** and **Stripe**. We are interested in the latter today, so select **Install** in the **Stripe** row below. Click **Start installation** in the pop up dialog to confirm and wait until it completes. 
 
 ![Setup Stripe integration in Power Pages](images/setup-stripe-1.png)
 
-6. Once **Installing...** status turned into **Installed**, click **Manage** button and enter **Secret key** and **Publishable key** from the Stripe test account you created earlier. Click **Save** to save the changes.
+7. Once **Installing...** status turned into **Installed**, click **Manage** button and enter **Secret key** and **Publishable key** from the Stripe test account you created earlier. Click **Save** to save the changes.
 
 ![Setup Stripe keys](images/setup-stripe-2.png)
 
-## Create a payment form
+8. In the **Set up** scroll down teh page and in teh section **Admin actions** click **Open admin center**. In the new tab opened, in the **Site Action** menu at the top select **Restart site** action. 
 
-1. In the Power Pages Studio, select **Data** section on the left panel and click on the cogs icon next to the **Data** header. Select a predefined solution **Power Pages Payments Lab**. This will ensure that the changes made in the next steps are associated with that Dataverse solution and not the Default solution.
+![Restart site](images\restart-site.png)
+
+## Create a pablisher and a solution (optional)
+
+Completion of this section is not strictly required to make the lab work. However, this is the best practice to create new objects (in the next section) in solutions. 
+
+1. Go to the Power Pages home and select **Solutions** section. Create there a new solution and name it **Power Pages Payments Lab** or similar. 
+
+![Solution](images/solution.png)
+
+2. You will be required to select or create a publisher as well. Create a new publisher and call it like your environment name, e.g. **Amber Sunset** and select a prefix, e.g. **lab_**
+
+![Publisher](images/publisher.png)
+
+3. Return to the Power Pages Studio of your site, select **Data** section on the left panel and click on the cogs icon next to the **Data** header. Select a predefined solution **Power Pages Payments Lab**. This will ensure that the changes made in the next steps are associated with that Dataverse solution and not the Default solution.
 
 ![Select solution](images/select-solution.png)
 
-2. Click **+ Table** button and select **New Table** to create a new table called **My Order** (or other name of your choice). Click **Save** to create the table. 
+## Create a payment form 
 
-3. Select **New column** for the created table and add a new column with Display name **Amount** and of Data type **Currency**.
+1. Click **+ Table** button and select **New Table** to create a new table called **My Order** (or other name of your choice). Click **Save** to create the table. 
+
+2. Select **New column** for the created table and add a new column with Display name **Amount** and of Data type **Currency**.
 
 ![Add amount column](images/amount-column.png)
 
-4. On the **Forms** tab find the default **Information** form, and edit it. Click **Add field** and select the column **Amount** to add it to the form. Hide the **Owner** column. Click **Save and publish** to save the form and then click **Back** to edit the table Payments.
+3. On the **Forms** tab find the default **Information** form, and edit it. Click **Add field** and select the column **Amount** to add it to the form. Hide the **Owner** column. Click **Save and publish** to save the form and then click **Back** to edit the table Payments.
 
 ![Order form](images/order-form.png)
 
-5. Click **New form** and add a new form called **Payment**. Click **Add field** and select the column **Amount** to add it to the form. Hide the **Name** and **Owner** columns. Click **Save and publish** to save the form and then click **Back** to edit the table Payments.
+4. Click **New form** and add a new form called **Payment**. Click **Add field** and select the column **Amount** to add it to the form. Hide the **Name** and **Owner** columns. Click **Save and publish** to save the form and then click **Back** to edit the table Payments.
 
 ![Payment form](images/payment-form.png)
 
@@ -62,8 +76,8 @@ This is the form where Stripe control will be inserted automatically by Power Pa
 
 1. In the Power Pages Studio, click **Sync** button on the top right corner. This is necessary for the changes made in the previous section to take effect.
 2. Select **Pages** section in Design Studio and click **+ Page** to create a brand new page. Name it **Checkout** or name of your choice. Leave the **Add page to main navigation** selected and click **Add**.  
-2. On the new page select **Multistep form** component from the list of section components available. Name it **Checkout** or similar and click **Done** to save it.
-3. On the added multistep component select **+ Add step** and set the step properties:
+3. On the new page select **Multistep form** component from the list of section components available. Name it **Checkout** or similar and click **Done** to save it.
+4. On the added multistep component select **+ Add step** and set the step properties:
 	* Step name: **Order details**
 	* Choose a table: **My Order**
 	* Select a form: **Information**
@@ -73,7 +87,7 @@ This is the form where Stripe control will be inserted automatically by Power Pa
 
 ![Order step 2](images/order-step-2.png)
 
-4. You may see a message **Set the permissions on this form**"with a button **New permission** available on the right. Click it and set the permission properties and save the record:
+5. You may see a message **Set the permissions on this form**"with a button **New permission** available on the right. Click it and set the permission properties and save the record:
 	* Permission to: **Create**, **Read**, **Update**
 	* Roles: **Anonymous users** and **Authenticated users** are selected. 
 
